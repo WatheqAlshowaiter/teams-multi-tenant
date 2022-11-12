@@ -28,7 +28,7 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         Logout::class => [
-            RemoveTenantIdFromSession::class
+            RemoveTenantIdFromSession::class,
         ],
     ];
 
