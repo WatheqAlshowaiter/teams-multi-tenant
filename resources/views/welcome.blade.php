@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
-@section('content')
+@section('body')
     <!--
       This example requires Tailwind CSS v2.0+
 
