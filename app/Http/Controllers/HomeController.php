@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 class HomeController extends Controller
 {
-
     public function show()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return view('welcome');
         } else {
             return view('dashboard');

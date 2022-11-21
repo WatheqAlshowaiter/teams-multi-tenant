@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Auth;
 
-use App\Providers\RouteServiceProvider;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +24,6 @@ class Register extends Component
 
     public function register()
     {
-
         $this->validate([
             'name' => ['required', 'string'],
             'companyName' => ['required', 'string', 'unique:tenants,name'],
