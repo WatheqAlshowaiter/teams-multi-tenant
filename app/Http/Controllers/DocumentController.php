@@ -20,7 +20,7 @@ class DocumentController extends Controller
 
         // stream the file to the browser
         if ($document->extension == 'pdf') {
-            return response(Storage::disk('s3')->get('/documents/' . $user->id . '/' . $filename))
+            return response(Storage::disk('s3')->get('/documents/'.$user->id.'/'.$filename))
                 ->header('Content-Type', 'application/pdf');
         }
     }

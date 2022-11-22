@@ -58,10 +58,11 @@ class User extends Authenticatable
 
     public function applicationUrl()
     {
-            if ($this->application()) {
-                return url('/documents/' . $this->id . '/' . $this->application()->filename);
-            }
-            return '#';
+        if ($this->application()) {
+            return url('/documents/'.$this->id.'/'.$this->application()->filename);
+        }
+
+        return '#';
     }
 
     public function application()
@@ -72,5 +73,12 @@ class User extends Authenticatable
     public function documents()
     {
         return $this->hasMany(Document::class);
+    }
+
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('name', 'like', '%'.$query.'%')
+            ->orWhere('email', 'like', '%'.$query.'%');
     }
 }
